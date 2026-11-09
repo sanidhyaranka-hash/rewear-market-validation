@@ -1,0 +1,27 @@
+Step,Action,Rows_or_Cells_Affected,Reason
+0. Load,Loaded 5045 rows x 68 columns,5045,Raw export preserved unchanged
+1. Duplicates,Removed exact duplicate submissions,45,Same respondent ID and identical answers = double submission
+1. Duplicates,Checked Respondent_ID uniqueness after removal,0,Should be 0
+2. Standardise labels,Emirate: unified spelling/case/spacing variants,290,Same answer typed differently would split one category into several
+2. Standardise labels,Age_Group: unified spelling/case/spacing variants,200,Same answer typed differently would split one category into several
+2. Standardise labels,Shopping_Frequency: unified spelling/case/spacing variants,91,Same answer typed differently would split one category into several
+2. Standardise labels,Previous_Secondhand_Purchase: unified spelling/case/spacing variants,45,Same answer typed differently would split one category into several
+3. Binary encoding,Converted 'Yes'/'No' text in multi-select columns to 1/0,495,Multi-select answers must be numeric 0/1 for association rules and models
+4. Response quality,"Removed straight-lining respondents (ticked every option, incl. 'No significant challenge')",20,"Selecting all 52 options, even contradictory ones, signals a careless/bot response"
+5. Invalid values,Negative monthly spend set to missing (then re-derived from band),6,Spend cannot be negative - data-entry sign error
+5. Invalid values,WTP code 99999 set to missing,8,"99999 is a survey-tool 'no answer' code, not a price; Q19 cannot exceed AED 300"
+5. Invalid values,Re-derived spend midpoint from the answered band,6,The band is the real answer; the midpoint is a derived number
+5. Invalid values,Re-derived Q19 WTP midpoint from the answered band,8,Same logic as above
+6. Outliers,"Monthly_Fashion_Spend_AED_Midpoint: flagged 25 values above 3xIQR fence (AED 2,475) that match no answer band; capped at top band AED 2,500",25,"Extreme but possible spenders: keep the person, limit their leverage on means and regression"
+6. Outliers,"Maximum_Item_Spend_AED_Midpoint: flagged 15 values above 3xIQR fence (AED 1,250) that match no answer band; capped at top band AED 650",15,"Extreme but possible spenders: keep the person, limit their leverage on means and regression"
+7. Missing values,Occupation: imputed with mode (most common answer),100,Item non-response under 3%; imputation keeps the respondent's other answers
+7. Missing values,Monthly_Fashion_Spend_Band: imputed with mode (most common answer),50,Item non-response under 3%; imputation keeps the respondent's other answers
+7. Missing values,Shopping_Frequency: imputed with mode (most common answer),39,Item non-response under 3%; imputation keeps the respondent's other answers
+7. Missing values,Preferred_Shopping_Channel: imputed with mode (most common answer),75,Item non-response under 3%; imputation keeps the respondent's other answers
+7. Missing values,Motivating_Discount: imputed with mode (most common answer),60,Item non-response under 3%; imputation keeps the respondent's other answers
+7. Missing values,Interest_in_Selling: imputed with mode (most common answer),125,Item non-response under 3%; imputation keeps the respondent's other answers
+7. Missing values,Monthly_Fashion_Spend_AED_Midpoint: filled from imputed band,50,Band and midpoint must agree
+7. Missing values,AED300_Item_WTP (Q19): imputed with median of same spend band; band re-derived,90,Group median is more accurate than the overall median because spend drives WTP
+8. Transform,Ordinal-encoded 6 ordered answer scales (e.g. Never=0 ... Frequently=3),29880,Keeps the natural order for correlation and models
+8. Transform,"Engineered 12 features: log spend, discount %, counts per multi-select block, digital channel, seller prospect, idle supply, WTP % of new price, premium interest",4980,Turns raw answers into business-meaningful drivers for EDA and models
+9. Output,"Final clean table 4980 rows x 90 columns, 0 missing in analysis columns",4980,Ready for EDA and the four algorithms

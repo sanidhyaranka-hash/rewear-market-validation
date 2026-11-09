@@ -1,0 +1,91 @@
+Column,Question,What it means,Used by,What we expect / why
+Respondent_ID,Derived,Unique respondent key,None (identifier),Excluded from every model so IDs cannot leak into predictions.
+Age_Group,Q1,Age band,"Classification, Clustering (ordinal), Regression",Younger groups expected to show higher intent; age shapes segments.
+Emirate,Q2,Emirate of residence,"Classification, Regression, Profiling",Mainly for launch geography and logistics; weak demand effect expected.
+Occupation,Q3,Occupation,"Classification, Regression, Profiling",Students vs employees vs homemakers differ in budget and supply.
+Monthly_Fashion_Spend_Band,Q4,Monthly fashion spend band (answer),"Classification, Clustering (ordinal)",Budget level; separates premium from value shoppers.
+Monthly_Fashion_Spend_AED_Midpoint,Q4,AED midpoint of the spend band (capped),"Regression (as log spend), EDA",Strongest driver of how much people will pay.
+Shopping_Frequency,Q5,How often they shop for fashion,"Classification, Clustering, Break-even projection",Sets orders per buyer per month in the projection.
+Previous_Secondhand_Purchase,Q6,Bought second-hand before?,"Classification, Clustering, Regression",Expected strongest adoption predictor (experience ladder).
+Preferred_Shopping_Channel,Q7,Preferred channel,"Classification, Clustering (digital flag)",Where to acquire customers; digital shoppers convert more.
+Motivating_Discount,Q8,Discount needed vs new price,"Classification, Clustering, Regression",Price sensitivity; 'would not buy' identifies the resistant group.
+Challenge_High_Branded_Prices,Q9,Q9 pain selected: High Branded Prices (1/0),"Association rules, Classification, some Clustering",Pains that should co-occur with matching feature requests.
+Challenge_Affordability,Q9,Q9 pain selected: Affordability (1/0),"Association rules, Classification, some Clustering",Pains that should co-occur with matching feature requests.
+Challenge_Limited_Variety,Q9,Q9 pain selected: Limited Variety (1/0),"Association rules, Classification, some Clustering",Pains that should co-occur with matching feature requests.
+Challenge_Sizing,Q9,Q9 pain selected: Sizing (1/0),"Association rules, Classification, some Clustering",Pains that should co-occur with matching feature requests.
+Challenge_Quality_Concerns,Q9,Q9 pain selected: Quality Concerns (1/0),"Association rules, Classification, some Clustering",Pains that should co-occur with matching feature requests.
+Challenge_Counterfeit_Concerns,Q9,Q9 pain selected: Counterfeit Concerns (1/0),"Association rules, Classification, some Clustering",Pains that should co-occur with matching feature requests.
+Challenge_Online_Seller_Trust,Q9,Q9 pain selected: Online Seller Trust (1/0),"Association rules, Classification, some Clustering",Pains that should co-occur with matching feature requests.
+Challenge_Return_Exchange,Q9,Q9 pain selected: Return Exchange (1/0),"Association rules, Classification, some Clustering",Pains that should co-occur with matching feature requests.
+Challenge_No_Significant_Challenge,Q9,Q9 pain selected: No Significant Challenge (1/0),"Association rules, Classification, some Clustering",Pains that should co-occur with matching feature requests.
+Unused_Clothing_Behaviour,Q10,What happens to unused clothes,"Classification, Supply analysis",'Keep in wardrobe' = untapped seller supply.
+Barrier_No_Time,Q11,Q11 selling barrier: No Time (1/0),"Association rules, Classification, some Clustering",Supply friction -> which seller service to build.
+Barrier_Complicated_Process,Q11,Q11 selling barrier: Complicated Process (1/0),"Association rules, Classification, some Clustering",Supply friction -> which seller service to build.
+Barrier_Dont_Know_Where,Q11,Q11 selling barrier: Don't Know Where (1/0),"Association rules, Classification, some Clustering",Supply friction -> which seller service to build.
+Barrier_Dont_Know_Price,Q11,Q11 selling barrier: Don't Know Price (1/0),"Association rules, Classification, some Clustering",Supply friction -> which seller service to build.
+Barrier_Payment_Security,Q11,Q11 selling barrier: Payment Security (1/0),"Association rules, Classification, some Clustering",Supply friction -> which seller service to build.
+Barrier_Selling_To_Strangers,Q11,Q11 selling barrier: Selling To Strangers (1/0),"Association rules, Classification, some Clustering",Supply friction -> which seller service to build.
+Barrier_Low_Resale_Value,Q11,Q11 selling barrier: Low Resale Value (1/0),"Association rules, Classification, some Clustering",Supply friction -> which seller service to build.
+Barrier_Not_Interested,Q11,Q11 selling barrier: Not Interested (1/0),"Association rules, Classification, some Clustering",Supply friction -> which seller service to build.
+Category_Designer_Luxury,Q12,Q12 category wanted: Designer Luxury (1/0),"Association rules (cross-sell), Classification, Regression",Category bundles to cross-sell; luxury raises WTP.
+Category_Bags_Accessories,Q12,Q12 category wanted: Bags Accessories (1/0),"Association rules (cross-sell), Classification, Regression",Category bundles to cross-sell; luxury raises WTP.
+Category_Shoes_Sneakers,Q12,Q12 category wanted: Shoes Sneakers (1/0),"Association rules (cross-sell), Classification, Regression",Category bundles to cross-sell; luxury raises WTP.
+Category_Sportswear,Q12,Q12 category wanted: Sportswear (1/0),"Association rules (cross-sell), Classification, Regression",Category bundles to cross-sell; luxury raises WTP.
+Category_Branded_Casual,Q12,Q12 category wanted: Branded Casual (1/0),"Association rules (cross-sell), Classification, Regression",Category bundles to cross-sell; luxury raises WTP.
+Category_Formalwear,Q12,Q12 category wanted: Formalwear (1/0),"Association rules (cross-sell), Classification, Regression",Category bundles to cross-sell; luxury raises WTP.
+Category_Childrenswear,Q12,Q12 category wanted: Childrenswear (1/0),"Association rules (cross-sell), Classification, Regression",Category bundles to cross-sell; luxury raises WTP.
+Category_Traditional_Ethnic,Q12,Q12 category wanted: Traditional Ethnic (1/0),"Association rules (cross-sell), Classification, Regression",Category bundles to cross-sell; luxury raises WTP.
+Category_Menswear,Q12,Q12 category wanted: Menswear (1/0),"Association rules (cross-sell), Classification, Regression",Category bundles to cross-sell; luxury raises WTP.
+Feature_Authenticity_Check,Q13,Q13 feature wanted: Authenticity Check (1/0),"Association rules, Classification, some Clustering",MVP scope and features to offer as add-ons.
+Feature_Verified_Sellers,Q13,Q13 feature wanted: Verified Sellers (1/0),"Association rules, Classification, some Clustering",MVP scope and features to offer as add-ons.
+Feature_Seller_Ratings,Q13,Q13 feature wanted: Seller Ratings (1/0),"Association rules, Classification, some Clustering",MVP scope and features to offer as add-ons.
+Feature_Quality_Grading,Q13,Q13 feature wanted: Quality Grading (1/0),"Association rules, Classification, some Clustering",MVP scope and features to offer as add-ons.
+Feature_Secure_Payments,Q13,Q13 feature wanted: Secure Payments (1/0),"Association rules, Classification, some Clustering",MVP scope and features to offer as add-ons.
+Feature_Returns_Refunds,Q13,Q13 feature wanted: Returns Refunds (1/0),"Association rules, Classification, some Clustering",MVP scope and features to offer as add-ons.
+Feature_Home_Delivery,Q13,Q13 feature wanted: Home Delivery (1/0),"Association rules, Classification, some Clustering",MVP scope and features to offer as add-ons.
+Feature_AI_Price_Suggestions,Q13,Q13 feature wanted: AI Price Suggestions (1/0),"Association rules, Classification, some Clustering",MVP scope and features to offer as add-ons.
+Feature_Wardrobe_Valuation,Q13,Q13 feature wanted: Wardrobe Valuation (1/0),"Association rules, Classification, some Clustering",MVP scope and features to offer as add-ons.
+Feature_AI_Recommendations,Q13,Q13 feature wanted: AI Recommendations (1/0),"Association rules, Classification, some Clustering",MVP scope and features to offer as add-ons.
+Feature_Clothing_Exchange,Q13,Q13 feature wanted: Clothing Exchange (1/0),"Association rules, Classification, some Clustering",MVP scope and features to offer as add-ons.
+Trust_Authenticity_Certificate,Q14,Q14 trust driver: Authenticity Certificate (1/0),"Association rules, Classification",Trust package shown on listings.
+Trust_Verified_Identity,Q14,Q14 trust driver: Verified Identity (1/0),"Association rules, Classification",Trust package shown on listings.
+Trust_Reviews,Q14,Q14 trust driver: Reviews (1/0),"Association rules, Classification",Trust package shown on listings.
+Trust_Condition_Ratings,Q14,Q14 trust driver: Condition Ratings (1/0),"Association rules, Classification",Trust package shown on listings.
+Trust_Detailed_Photos,Q14,Q14 trust driver: Detailed Photos (1/0),"Association rules, Classification",Trust package shown on listings.
+Trust_Secure_Gateway,Q14,Q14 trust driver: Secure Gateway (1/0),"Association rules, Classification",Trust package shown on listings.
+Trust_Return_Guarantee,Q14,Q14 trust driver: Return Guarantee (1/0),"Association rules, Classification",Trust package shown on listings.
+Trust_Customer_Support,Q14,Q14 trust driver: Customer Support (1/0),"Association rules, Classification",Trust package shown on listings.
+Interest_in_Selling,Q15,Would sell on ReWear?,"Classification, Clustering (ordinal), Supply",Seller-side conversion; identifies the supply segment.
+Maximum_Item_Spend_Band,Q16,Answer band for a pricing question,"EDA, Classification",Human-readable answer; its midpoint column is the number.
+Maximum_Item_Spend_AED_Midpoint,Q16,AED midpoint of a pricing answer,"Classification input, EDA, Financial model","Q16-Q18 inform AOV, membership and delivery pricing."
+Subscription_WTP_Band,Q17,Answer band for a pricing question,"EDA, Classification",Human-readable answer; its midpoint column is the number.
+Subscription_WTP_AED_Midpoint,Q17,AED midpoint of a pricing answer,"Classification input, EDA, Financial model","Q16-Q18 inform AOV, membership and delivery pricing."
+Delivery_WTP_Band,Q18,Answer band for a pricing question,"EDA, Classification",Human-readable answer; its midpoint column is the number.
+Delivery_WTP_AED_Midpoint,Q18,AED midpoint of a pricing answer,"Classification input, EDA, Financial model","Q16-Q18 inform AOV, membership and delivery pricing."
+AED300_Item_WTP_Band,Q19,Answer band for a pricing question,"EDA, Classification",Human-readable answer; its midpoint column is the number.
+AED300_Item_WTP_AED_Midpoint,Q19,TARGET: price for an AED 300 item,"Regression target, Clustering input",What Linear/Ridge/Lasso predict; basis for price points and AOV.
+Q20_Use_ReWear_5Level,Q20,Would use ReWear (5 levels),Profiling only,Kept for EDA; never an input to any model.
+Conversion_Intent_Binary,Q20,TARGET: Definitely/Probably yes = 1,Classification target,What the classifiers predict; also profiles clusters after they are formed.
+Synthetic_Data_Flag,Derived,Marks every row as simulated,None,Honesty flag; excluded.
+Outlier_Flag,Derived,1 = extreme value was capped,Data quality,Lets results be re-run without outliers.
+Monthly_Fashion_Spend_AED_Midpoint_Raw,Derived,Value before outlier capping,Data quality only,Kept for sensitivity checks; not used in models.
+Maximum_Item_Spend_AED_Midpoint_Raw,Derived,Value before outlier capping,Data quality only,Kept for sensitivity checks; not used in models.
+Age_Group_Ord,Derived,Ordered number version of an answer (0 = lowest),"Correlation, Clustering",Lets ordered answers be correlated and clustered.
+Monthly_Fashion_Spend_Band_Ord,Derived,Ordered number version of an answer (0 = lowest),"Correlation, Clustering",Lets ordered answers be correlated and clustered.
+Shopping_Frequency_Ord,Derived,Ordered number version of an answer (0 = lowest),"Correlation, Clustering",Lets ordered answers be correlated and clustered.
+Previous_Secondhand_Purchase_Ord,Derived,Ordered number version of an answer (0 = lowest),"Correlation, Clustering",Lets ordered answers be correlated and clustered.
+Interest_in_Selling_Ord,Derived,Ordered number version of an answer (0 = lowest),"Correlation, Clustering",Lets ordered answers be correlated and clustered.
+Q20_Use_ReWear_5Level_Ord,Derived,Ordered number version of an answer (0 = lowest),"Correlation, Clustering",Lets ordered answers be correlated and clustered.
+Discount_Needed_Pct,Derived,Discount needed as a number,Clustering / Regression / EDA (engineered),Business-meaningful driver created in cleaning.
+Rejects_Preowned,Derived,1 = would not buy pre-owned,Clustering / Regression / EDA (engineered),Business-meaningful driver created in cleaning.
+Log_Fashion_Spend,Derived,log of fashion spend,Clustering / Regression / EDA (engineered),Business-meaningful driver created in cleaning.
+Challenge_Count,Derived,Q9 pain selected: Count (1/0),"Association rules, Classification, some Clustering",Pains that should co-occur with matching feature requests.
+Barrier_Count,Derived,Q11 selling barrier: Count (1/0),"Association rules, Classification, some Clustering",Supply friction -> which seller service to build.
+Category_Count,Derived,Q12 category wanted: Count (1/0),"Association rules (cross-sell), Classification, Regression",Category bundles to cross-sell; luxury raises WTP.
+Feature_Count,Derived,Q13 feature wanted: Count (1/0),"Association rules, Classification, some Clustering",MVP scope and features to offer as add-ons.
+Trust_Count,Derived,Q14 trust driver: Count (1/0),"Association rules, Classification",Trust package shown on listings.
+Digital_Channel,Derived,1 = prefers a digital channel,Clustering / Regression / EDA (engineered),Business-meaningful driver created in cleaning.
+Seller_Prospect,Derived,1 = probably/definitely would sell,Clustering / Regression / EDA (engineered),Business-meaningful driver created in cleaning.
+Has_Idle_Supply,Derived,1 = keeps or discards unused clothes,Clustering / Regression / EDA (engineered),Business-meaningful driver created in cleaning.
+WTP_Pct_of_New_Price,Derived,Q19 as % of the AED 300 price,Clustering / Regression / EDA (engineered),Business-meaningful driver created in cleaning.
+Premium_Interest,Derived,1 = wants designer or bags,Clustering / Regression / EDA (engineered),Business-meaningful driver created in cleaning.
