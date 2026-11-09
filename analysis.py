@@ -471,7 +471,7 @@ def run_classification(df, seed=42):
     models = {
         "Logistic Regression": make_pipeline(StandardScaler(), LogisticRegression(max_iter=4000, C=0.3)),
         "Decision Tree": DecisionTreeClassifier(max_depth=6, min_samples_leaf=25, random_state=seed),
-        "Random Forest": RandomForestClassifier(n_estimators=300, min_samples_leaf=5, n_jobs=-1, random_state=seed),
+        "Random Forest": RandomForestClassifier(n_estimators=300, min_samples_leaf=5, n_jobs=1, random_state=seed),
         "Gradient Boosting": GradientBoostingClassifier(random_state=seed),
         "K-Nearest Neighbours": make_pipeline(StandardScaler(), KNeighborsClassifier(n_neighbors=35)),
         "Naive Bayes": GaussianNB(),
@@ -482,7 +482,7 @@ def run_classification(df, seed=42):
     for name, m in models.items():
         m.fit(Xtr, ytr)
         pr = m.predict(Xte); sc = m.predict_proba(Xte)[:, 1]
-        cv_auc = cross_val_score(m, Xtr, ytr, cv=cv, scoring="roc_auc", n_jobs=-1)
+        cv_auc = cross_val_score(m, Xtr, ytr, cv=cv, scoring="roc_auc", n_jobs=1)
         rows.append({"Model": name, "Accuracy": accuracy_score(yte, pr), "Precision": precision_score(yte, pr),
                      "Recall": recall_score(yte, pr), "F1": f1_score(yte, pr), "ROC_AUC": roc_auc_score(yte, sc),
                      "CV_AUC_mean": cv_auc.mean(), "CV_AUC_sd": cv_auc.std()})
@@ -670,7 +670,7 @@ def run_regression(df, seed=42):
     models = {"Linear Regression": make_pipeline(StandardScaler(), LinearRegression()),
               "Ridge Regression": make_pipeline(StandardScaler(), Ridge(alpha=ridge_a)),
               "Lasso Regression": make_pipeline(StandardScaler(), Lasso(alpha=lasso_a, max_iter=20000)),
-              "Random Forest Regressor": RandomForestRegressor(n_estimators=300, min_samples_leaf=5, n_jobs=-1, random_state=seed)}
+              "Random Forest Regressor": RandomForestRegressor(n_estimators=300, min_samples_leaf=5, n_jobs=1, random_state=seed)}
     rows, preds, fitted = [], {}, {}
     for n, m in models.items():
         m.fit(Xtr, ytr); p = m.predict(Xte)
